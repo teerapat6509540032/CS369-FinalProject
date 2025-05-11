@@ -1,0 +1,36 @@
+.account-container {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .account-sidebar {
+    width: 250px;
+  }
+  
+  .account-content {
+    flex: 1;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    transition: width 0.3s ease; /* Smooth transition for width changes */
+  }
+  
+  .account-content.wide {
+    width: 800px; /* Adjust this value to make it wider */
+  }
+
+  .account-container {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .account-sidebar {
+    width: 250px;
+  }
+  
+  .account-content {
+    flex: 1;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+  }

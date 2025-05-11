@@ -11,7 +11,6 @@ const Navbar = ({ isLoggedIn, setIsLoggedIn }) => {
       <nav className="nav-menu">
         <Link to="/">Home</Link>
         <Link to="/design">Design</Link>
-        <Link to="/order">Order</Link>
         <Link to="/account">Account</Link>
       </nav>
       <NavbarActions isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />

@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import Profile from './Profile';
 import OrderHistory from './OrderHistory';
 import SavedDesigns from './SavedDesigns';
-import Preferences from './Preferences';
 import '../css/Account.css'; 
 
 const Account = () => {
@@ -22,8 +21,6 @@ const Account = () => {
         return <OrderHistory />;
       case 'Saved Designs':
         return <SavedDesigns />;
-      case 'Preferences':
-        return <Preferences />;
       default:
         return <Profile />;
     }
@@ -68,13 +65,7 @@ const Account = () => {
             >
               Saved Designs
             </a>
-            <a
-              href="#"
-              className={`account-nav-item ${activeSection === 'Preferences' ? 'active' : ''}`}
-              onClick={(e) => handleNavClick('Preferences', e)}
-            >
-              Preferences
-            </a>
+            
           </div>
         </div>
         <div className="account-content">{renderContent()}</div>

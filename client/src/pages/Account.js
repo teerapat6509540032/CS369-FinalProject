@@ -19,7 +19,6 @@ const Account = () => {
               <a href="#" className="account-nav-item active">Profile Details</a>
               <a href="#" className="account-nav-item">Order History</a>
               <a href="#" className="account-nav-item">Saved Designs</a>
-              <a href="#" className="account-nav-item">Preferences</a>
             </div>
           </div>
 

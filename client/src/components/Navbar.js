@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import NavbarActions from './NavbarActions';
 
-const Navbar = () => {
+const Navbar = ({ isLoggedIn, setIsLoggedIn }) => {
   return (
     <header className="navbar">
       <div className="navbar-left">
@@ -13,10 +14,7 @@ const Navbar = () => {
         <Link to="/order">Order</Link>
         <Link to="/account">Account</Link>
       </nav>
-      <div className="navbar-right">
-        <Link to="/login" className="btn btn-outline-blue">Login</Link>
-      <Link to="/design"><button className="btn btn-blue">Start Designing</button></Link>
-      </div>
+      <NavbarActions isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
     </header>
   );
 };

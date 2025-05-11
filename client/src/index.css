@@ -28,6 +28,11 @@ body {
 {
   text-decoration: none;
 }
+.navbar-right
+{
+  display: flex;
+  gap: 20px;
+}
 
 .logo {
   font-size: 28px;
@@ -545,3 +550,82 @@ body {
   margin-bottom: 1.5rem; /* ลดช่องว่างด้านล่าง */
   padding: 0 10px; /* ใส่ padding ด้านข้างหากต้องการให้เนื้อหามีระยะห่าง */
 }
+/* ปรับขนาดฟอร์ม */
+.auth-container {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 40px;
+  background-color: #f9f9f9; /* เพิ่มพื้นหลังอ่อน ๆ */
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1); /* เพิ่มเงาให้ดูลึก */
+  border-radius: 10px;
+  margin-top: 80px;
+}
+
+/* ปรับระยะห่างระหว่างคอมโพเนนต์ */
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 25px; /* เพิ่มระยะห่างระหว่างช่องกรอกข้อมูล */
+}
+
+.auth-form input {
+  padding: 15px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fff;
+  transition: border-color 0.3s;
+}
+
+.auth-form input:focus {
+  border-color: #4a90e2; /* เมื่อโฟกัสจะมีสีฟ้า */
+  outline: none;
+}
+
+.auth-form button {
+  padding: 15px;
+  font-size: 16px;
+  background-color: #007bff; /* สีน้ำเงิน */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.auth-form button:hover {
+  background-color: #0056b3; /* เปลี่ยนสีเมื่อ hover */
+}
+
+/* ปรับปุ่มย้อนกลับ */
+.back-button {
+  display: inline-block;
+  margin-bottom: 25px; /* เพิ่มระยะห่างระหว่างปุ่มย้อนกลับกับฟอร์ม */
+  font-size: 16px;
+  color: #007bff;
+  text-decoration: none;
+}
+
+.back-button:hover {
+  text-decoration: underline;
+}
+
+/* ปรับขนาดข้อความในหัวข้อ */
+h2 {
+  font-size: 32px; /* ขนาดตัวอักษรใหญ่ขึ้น */
+  text-align: center;
+  color: #333;
+  margin-bottom: 30px; /* เพิ่มระยะห่างจากฟอร์ม */
+}
+.login-header
+{
+  width: 100%;
+  height: 100px;
+  background-color: #3d3dd3;
+}
+.changeLogin-Register
+{
+  margin-top: 10px;
+}
+
+

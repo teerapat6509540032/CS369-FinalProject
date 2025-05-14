@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import  '../css/Design.css';
 const Design = () => {
   const [selectedProduct, setSelectedProduct] = useState('t-shirt');
   const [showPreview, setShowPreview] = useState(false);

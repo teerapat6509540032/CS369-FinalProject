@@ -1,0 +1,101 @@
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  background-color: white;
+  border-bottom: 1px solid #ddd;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/* Navbar Left */
+.navbar-left {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-left a {
+  text-decoration: none;
+}
+
+/* Logo */
+.logo {
+  font-size: 28px;
+  font-weight: 600;
+  color: #628bff;
+  font-family: 'Tektur', sans-serif;
+  text-decoration: none;
+}
+
+/* Nav Menu */
+.nav-menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  flex: 1; /* Ensures the nav-menu takes up available space */
+  margin: 0 auto; /* Centers the nav-menu horizontally */
+}
+
+.nav-menu a {
+  text-decoration: none;
+  color: black;
+  font-size: 18px;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.nav-menu a:hover {
+  color: #2c6dfd;
+}
+
+/* Navbar Right */
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Buttons */
+.btn {
+  font-size: 14px;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.btn-blue {
+  background-color: #2c6dfd;
+  color: white;
+  border: none;
+}
+
+.btn-blue:hover {
+  background-color: #194eea;
+}
+
+.btn-outline-blue {
+  background-color: transparent;
+  border: 2px solid #2c6dfd;
+  color: #2c6dfd;
+}
+
+.btn-outline-blue:hover {
+  background-color: #e6f0ff;
+}
+
+.btn-outline-red {
+  background-color: transparent;
+  border: 2px solid #ff4d4f;
+  color: #ff4d4f;
+}
+
+.btn-outline-red:hover {
+  background-color: #ffe6e6;
+}

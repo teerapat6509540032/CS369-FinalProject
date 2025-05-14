@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+import '../css/Auth.css';
 const Login = ({ setIsLoggedIn }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -17,7 +17,7 @@ const Login = ({ setIsLoggedIn }) => {
         <input type="password" placeholder="Password" required />
         <button type="submit" className="btn btn-blue">Login</button>
       </form>
-      <p>Don't have an account? <Link to="/register">Register here</Link></p>
+      <p className="changeLogin-Register" >Don't have an account? <Link to="/register">Register here</Link></p>
     </div>
   );
 };

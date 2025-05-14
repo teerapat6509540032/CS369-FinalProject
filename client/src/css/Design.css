@@ -1,0 +1,119 @@
+/* Header Section */
+.header-page {
+  padding: 5% 10%;
+  text-align: center;
+}
+
+.header-page h1 {
+  font-size: 2.5rem;
+  color: #2c6dfd;
+  margin-bottom: 1rem;
+}
+
+.description {
+  font-size: 1.1rem;
+  color: #555;
+  margin: 0 auto;
+  max-width: 600px;
+  margin-bottom: 1.5rem;
+  padding: 0 10px;
+}
+
+/* Product Selector */
+.product-selector {
+  margin-bottom: 32px;
+}
+
+.product-selector h3 {
+  font-size: 22px;
+  margin-bottom: 16px;
+  color: #333;
+}
+
+.product-options {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.product-option {
+  padding: 12px 24px;
+  border-radius: 8px;
+  background-color: #f0f4ff;
+  border: 2px solid #f0f4ff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.product-option:hover {
+  background-color: #e4ebff;
+}
+
+.product-option.selected {
+  background-color: #d8e3ff;
+  border-color: #2c6dfd;
+  color: #2c6dfd;
+}
+
+/* Design Actions */
+.design-actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 3rem;
+}
+
+.btn-outline-blue {
+  background-color: transparent;
+  border: 2px solid #2c6dfd;
+  color: #2c6dfd;
+}
+
+.btn-outline-blue:hover {
+  background-color: #f0f8ff;
+}
+
+/* Design Preview */
+.design-preview {
+  margin-top: 2rem;
+}
+
+.mockup-area {
+  height: 350px;
+  border: 2px dashed #ccc;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #888;
+  font-size: 1.2rem;
+  background-color: #f9f9f9;
+  padding: 20px;
+}
+
+.preview-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.product-image {
+  max-height: 250px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.preview-label {
+  margin-top: 16px;
+  font-weight: 600;
+  color: #2c6dfd;
+}
+
+/* Design Complete */
+.design-complete {
+  margin-top: 40px;
+  text-align: center;
+}

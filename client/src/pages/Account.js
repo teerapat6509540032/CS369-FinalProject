@@ -3,7 +3,7 @@ import Profile from './Profile';
 import OrderHistory from './OrderHistory';
 import SavedDesigns from './SavedDesigns';
 import '../css/Account.css'; 
-
+import '../css/OrderHistory.css';
 const Account = () => {
   const [activeSection, setActiveSection] = useState('Profile Details'); // Default to Profile Details
 

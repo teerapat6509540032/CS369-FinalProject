@@ -1,0 +1,58 @@
+/* Container */
+.saved-designs-container {
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.saved-designs-container h2 {
+  font-size: 32px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Grid Layout */
+.designs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+/* Design Card */
+.design-card {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.design-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Design Image */
+.design-image {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+/* Design Info */
+.design-info {
+  padding: 16px;
+  text-align: left;
+}
+
+.design-info h3 {
+  font-size: 20px;
+  color: #2c6dfd;
+  margin-bottom: 8px;
+}
+
+.design-info p {
+  font-size: 14px;
+  color: #555;
+}

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import NavbarActions from './NavbarActions';
-
+import '../css/Navbar.css';
 const Navbar = ({ isLoggedIn, setIsLoggedIn }) => {
   return (
     <header className="navbar">

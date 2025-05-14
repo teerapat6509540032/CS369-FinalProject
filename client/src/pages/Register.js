@@ -1,10 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import '../css/Auth.css';
 
 const Register = () => {
   return (
     <div>
-    <div className = "login-header"></div>
+  
     <div className="auth-container">
       <Link to="/" className="back-button">← Back to Home</Link>
       <h2>Register</h2>

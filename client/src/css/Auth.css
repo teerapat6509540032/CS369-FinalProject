@@ -1,0 +1,74 @@
+/* Login/Register Header */
+
+/* Auth Container */
+.auth-container {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 40px;
+  background-color: #f9f9f9;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  margin-top: 80px;
+}
+
+/* Auth Form */
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.auth-form input {
+  padding: 15px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fff;
+  transition: border-color 0.3s;
+}
+
+.auth-form input:focus {
+  border-color: #4a90e2;
+  outline: none;
+}
+
+.auth-form button {
+  padding: 15px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.auth-form button:hover {
+  background-color: #0056b3;
+}
+
+/* Back Button */
+.back-button {
+  display: inline-block;
+  margin-bottom: 25px;
+  font-size: 16px;
+  color: #007bff;
+  text-decoration: none;
+}
+
+.back-button:hover {
+  text-decoration: underline;
+}
+
+/* Change Login/Register Link */
+.changeLogin-Register {
+  margin-top: 10px;
+}
+
+/* Headings */
+h2 {
+  font-size: 32px;
+  text-align: center;
+  color: #333;
+  margin-bottom: 30px;
+}

@@ -11,13 +11,6 @@ const NavbarActions = () => {
   const handleLogout = async () => {
     const token = localStorage.getItem('token');
     if (token) {
-      await fetch('/api/auth/logout', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`,
-        },
-      });
       localStorage.removeItem('token');
       setIsLoggedIn(false);
       window.location.reload();

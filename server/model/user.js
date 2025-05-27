@@ -23,7 +23,10 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    tokens: [String]
+    shippingAddress: {
+        type: String,
+        default: ''
+    },
 });
 
 let User = mongoose.model('User', userSchema, 'users');

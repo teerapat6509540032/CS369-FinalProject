@@ -5,6 +5,7 @@ import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
 import {config} from './config/dbConfig.js';
 import authRoutes from './routes/authRoutes.js';
+import accountRoutes from './routes/accountRoutes.js';
 
 var app = express();
 const PORT = 5000;
@@ -19,6 +20,7 @@ mongoose.connect(config.database, config.connectOptions)
 
 // REST for products
 app.use('/api/auth', authRoutes);
+app.use('/api/account', accountRoutes);
 
 // Start server
 app.listen(PORT, function(){

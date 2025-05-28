@@ -9,6 +9,7 @@ import Order from './pages/Order';
 import Account from './pages/Account';
 import Login from './pages/Login';
 import Register from './pages/Register';
+import Cart from './pages/Cart';
 
 const App = () => {
     const location = useLocation();  // ใช้เพื่อเช็คเส้นทางปัจจุบัน
@@ -25,6 +26,7 @@ const App = () => {
         <Route path="/account" element={<Account />} />
         <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn} />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/cart" element={<Cart />} />
 
       </Routes>
       <Footer />

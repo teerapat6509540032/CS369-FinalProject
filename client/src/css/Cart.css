@@ -1,0 +1,96 @@
+.item-section {
+  margin: 15px; 
+}
+.item-container {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 40px;
+  justify-content: space-between;
+}
+
+.item-container div {
+  margin: 3%;
+  text-align: center;
+  line-height: 75px;
+}
+
+.item-checkbox {
+  font-family: sans-serif;
+  font-size: 16px;
+}
+
+/* ซ่อน checkbox ดั้งเดิม */
+.item-checkbox input[type="checkbox"] {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #007bff;
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+  transition: background-color 0.2s ease;
+}
+
+.item-checkbox input[type="checkbox"]:hover {
+  background-color: #e0f0ff;
+}
+
+.item-checkbox input[type="checkbox"]:checked {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.item-checkbox input[type="checkbox"]::after {
+  content: "✔";
+  color: white;
+  font-size: 14px;
+  position: absolute;
+  bottom: 0.5px;
+  left: 3px;
+  display: none;
+}
+
+.item-checkbox input[type="checkbox"]:checked::after {
+  display: block;
+}
+
+.item-image img{
+  width: 200px;
+  height: 200px;
+  border-radius: 30px;
+}
+
+.item-adjustAmount {
+  
+}
+
+.item-adjustAmount button  {
+  margin: 10px;
+  width: 32px;
+  height: 32px;
+  border: none;
+  background-color: #ccc;
+  color: white;
+  font-size: 18px;
+  border-radius: 6px;
+  cursor: pointer; 
+  transition: background-color 0.2s ease;
+}
+
+.item-adjustAmount button:hover {
+  background-color: #007bff;
+}
+
+.item-adjustAmount input {
+  width: 40px;
+  height: 32px;
+  text-align: center;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.summary-price span {
+  color: red;
+}

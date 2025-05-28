@@ -21,7 +21,7 @@ const NavbarActions = () => {
     <div className="navbar-right">
       {isLoggedIn ? (
         <>
-          <Link to="/cart">🛒</Link>
+          <Link to="/cart"><img width={35} height={35} src='https://cdn.creazilla.com/icons/3216541/shopping-cart-icon-md.png' alt='cart-image'></img></Link>
           <Link to="/design">
             <button className="btn btn-blue">Start Designing</button>
           </Link>

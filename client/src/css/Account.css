@@ -124,6 +124,16 @@
   border-radius: 8px;
 }
 
+.editable-field input{
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
 .editable-field p {
   margin: 0;
   font-size: 16px;

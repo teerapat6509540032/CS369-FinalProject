@@ -121,5 +121,8 @@
 }
 
 .checkout-cart button:hover {
-  background-color: #3e9afd;
+  background-color: #6fb2f9;
+  color: #00346c;
+  border-color: #00346c;
+  
 }

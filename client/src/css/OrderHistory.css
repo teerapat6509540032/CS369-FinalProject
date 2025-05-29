@@ -72,7 +72,7 @@
   color: #0d9b53;
 }
 
-.status.processing {
+.status.pending {
   background-color: #fff8e6;
   color: #b77e0e;
 }

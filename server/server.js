@@ -8,6 +8,7 @@ import authRoutes from './routes/authRoutes.js';
 import accountRoutes from './routes/accountRoutes.js';
 import designRoutes from './routes/designRoutes.js';
 import orderRoutes from './routes/orderRoutes.js';
+import cartRoutes from './routes/cartRoutes.js';
 
 var app = express();
 const PORT = 5000;
@@ -25,6 +26,7 @@ app.use('/api/auth', authRoutes);
 app.use('/api/account', accountRoutes);
 app.use('/api/design', designRoutes);
 app.use('/api/order', orderRoutes);
+app.use('/api/cart', cartRoutes);
 
 // Start server
 app.listen(PORT, function(){

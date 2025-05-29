@@ -1,16 +1,11 @@
 import * as mongooseDef from "mongoose";
- let mongoose = mongooseDef.default;
+let mongoose = mongooseDef.default;
 
-const orderSchema = new mongoose.Schema({
-    userID: {
+const cartSchema = new mongoose.Schema({
+    userId: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
         required: true
-    },
-    orderID: {
-        type: Number,
-        required: true,
-        unique: true,
     },
     products: [
         {
@@ -19,24 +14,23 @@ const orderSchema = new mongoose.Schema({
                 ref: 'Design',
                 required: true
             },
+            productId: {
+                type: String,
+                required: true
+            },
             quantity: {
                 type: Number,
-                required: true,
+                default: 1,
                 min: 1
             }
         }
     ],
-    orderStatus: {
-        type: String,
-        enum: ['Pending', 'Shipped', 'Delivered'],
-        default: 'Pending'
-    },
     createdAt: {
         type: Date,
         default: Date.now
     }
 });
 
-let Order = mongoose.model('Order', orderSchema, 'orders');
+let Cart = mongoose.model('Cart', cartSchema, 'carts');
 
-export default Order;
+export default Cart;

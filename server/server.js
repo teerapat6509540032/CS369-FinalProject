@@ -7,6 +7,7 @@ import {config} from './config/dbConfig.js';
 import authRoutes from './routes/authRoutes.js';
 import accountRoutes from './routes/accountRoutes.js';
 import designRoutes from './routes/designRoutes.js';
+import orderRoutes from './routes/orderRoutes.js';
 
 var app = express();
 const PORT = 5000;
@@ -23,6 +24,7 @@ mongoose.connect(config.database, config.connectOptions)
 app.use('/api/auth', authRoutes);
 app.use('/api/account', accountRoutes);
 app.use('/api/design', designRoutes);
+app.use('/api/order', orderRoutes);
 
 // Start server
 app.listen(PORT, function(){

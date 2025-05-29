@@ -1,7 +1,9 @@
 .item-section {
   margin: 15px; 
+
 }
 .item-container {
+  margin-bottom: 20px;
   display: flex;
   align-items: center;
   border: 1px solid #ccc;
@@ -56,8 +58,8 @@
 }
 
 .item-image img{
-  width: 200px;
-  height: 200px;
+  width: 150px;
+  height: 150px;
   border-radius: 30px;
 }
 
@@ -93,4 +95,31 @@
 
 .summary-price span {
   color: red;
+}
+
+.checkout-cart {
+  display: flex;
+  float: right;
+}
+
+.total-price {
+  font-size: 20px;
+}
+
+.checkout-cart button {
+  padding: 0px 5px 3px;
+  margin: 0px 15px ;
+  width: auto;
+  height: 32px;
+  /* border: none; */
+  background-color: #e4e3e3;
+  color: black;
+  font-size: 18px;
+  border-radius: 6px;
+  cursor: pointer; 
+  transition: background-color 0.2s ease;
+}
+
+.checkout-cart button:hover {
+  background-color: #3e9afd;
 }

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import Profile from './Profile';
-import OrderHistory from './OrderHistory';
-import SavedDesigns from './SavedDesigns';
+import Profile from '../components/Profile';
+import OrderHistory from '../components/OrderHistory';
+import SavedDesigns from '../components/SavedDesigns';
 import '../css/Account.css'; 
 import '../css/OrderHistory.css';
 const Account = () => {

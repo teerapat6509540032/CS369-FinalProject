@@ -26,11 +26,11 @@ const SavedDesigns = () => {
         fetchSavedDesigns();    
     }, []);
 
-    const savedDesigns = [
-        { id: 1, name: 'Design 1', description: 'This is design 1', image: 'https://plus.unsplash.com/premium_photo-1669632824466-09b2c595aa4c?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Y3V0ZSUyMHBpY3xlbnwwfHwwfHx8MA%3D%3D' },
-        { id: 2, name: 'Design 2', description: 'This is design 2', image: 'https://plus.unsplash.com/premium_photo-1669632824466-09b2c595aa4c?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Y3V0ZSUyMHBpY3xlbnwwfHwwfHx8MA%3D%3D' },
-        { id: 3, name: 'Design 3', description: 'This is design 3', image: 'https://plus.unsplash.com/premium_photo-1669632824466-09b2c595aa4c?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Y3V0ZSUyMHBpY3xlbnwwfHwwfHx8MA%3D%3D' },
-    ];
+    // const savedDesigns = [
+    //     { id: 1, name: 'Design 1', description: 'This is design 1', image: 'https://plus.unsplash.com/premium_photo-1669632824466-09b2c595aa4c?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Y3V0ZSUyMHBpY3xlbnwwfHwwfHx8MA%3D%3D' },
+    //     { id: 2, name: 'Design 2', description: 'This is design 2', image: 'https://plus.unsplash.com/premium_photo-1669632824466-09b2c595aa4c?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Y3V0ZSUyMHBpY3xlbnwwfHwwfHx8MA%3D%3D' },
+    //     { id: 3, name: 'Design 3', description: 'This is design 3', image: 'https://plus.unsplash.com/premium_photo-1669632824466-09b2c595aa4c?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Y3V0ZSUyMHBpY3xlbnwwfHwwfHx8MA%3D%3D' },
+    // ];
 
     return (
         <div className="saved-designs-container">

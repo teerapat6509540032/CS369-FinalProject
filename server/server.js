@@ -1,7 +1,7 @@
 import dotenv from 'dotenv';
 dotenv.config();
 import express from 'express';
-import mongoose from 'mongoose';
+import * as mongooseDef from 'mongoose';
 import bodyParser from 'body-parser';
 import {config} from './config/dbConfig.js';
 import authRoutes from './routes/authRoutes.js';
@@ -15,11 +15,15 @@ const PORT = 5000;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use('/mockups', express.static('mockups'));
+app.use('/uploads', express.static('uploads'));
 
-
-mongoose.connect(config.database, config.connectOptions)
-    .then(() => console.log('MongoDB connected'))
-    .catch(err => console.error('MongoDB connection error:', err));
+let mongoose = mongooseDef.default;
+mongoose.connect(config.database, config.connectOptions);
+mongoose.connection.on('connected', () => {
+    console.log('Connected to database ' + config.database);
+});
+mongoose.connection.on('error', () => { console.log('Database error'); });
 
 // REST for products
 app.use('/api/auth', authRoutes);

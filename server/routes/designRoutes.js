@@ -5,6 +5,6 @@ let router = express.Router();
 
 router.post('/createDesign', createDesign);
 router.get('/getAllDesigns', getAllDesigns);
-router.delete('/deleteDesign:id', deleteDesign);
+router.delete('/deleteDesign/:id', deleteDesign);
 
 export default router;

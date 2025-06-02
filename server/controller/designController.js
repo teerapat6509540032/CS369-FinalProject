@@ -1,6 +1,8 @@
 import Design from "../model/design.js";
 import Counter from "../model/counter.js";
 import jwt from "jsonwebtoken";
+import fs from "fs";
+import path from "path";
 
 const generateProductId = async (category) => {
     const counter = await Counter.findOneAndUpdate(
@@ -25,10 +27,26 @@ export const createDesign = async (req, res) => {
             return res.status(401).json({ message: 'Invalid token' });
         }
 
-        const { name, designData, category, price } = req.body;
-        if (!designData || !price || !category || !name) {
+        const { name, image, category, price } = req.body;
+        if (!image || !price || !category || !name) {
             return res.status(400).json({ message: 'Invalid design data' });
         }
+
+        const designData = image.replace(/^data:image\/png;base64,/, "");
+
+        const filename = `image_${Date.now()}.png`;
+        const filePath = path.join('uploads', filename);
+
+        await new Promise((resolve, reject) => {
+            fs.writeFile(filePath, designData, 'base64', (err) => {
+                if (err) {
+                    console.error('Error saving image:', err);
+                    reject(new Error('Failed to save design image'));
+                } else {
+                    resolve();
+                }
+            });
+        });
 
         const productId = await generateProductId(category);
 
@@ -36,7 +54,7 @@ export const createDesign = async (req, res) => {
             userId: decoded.id,
             productId,
             name,
-            designData,
+            designData: filePath,
             category,
             price
         });
@@ -52,8 +70,8 @@ export const createDesign = async (req, res) => {
 
 export const deleteDesign = async (req, res) => {
     try {
-        const { id } = req.params;
-        const design = await Design.findByIdAndDelete(id);
+        const id = req.params;
+        const design = await Design.findOneAndDelete( { productId: id });
         if (!design) {
             return res.status(404).json({ message: 'Design not found' });
         }

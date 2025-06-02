@@ -63,10 +63,6 @@
   border-radius: 30px;
 }
 
-.item-adjustAmount {
-  
-}
-
 .item-adjustAmount button  {
   margin: 10px;
   width: 32px;
@@ -122,7 +118,22 @@
 
 .checkout-cart button:hover {
   background-color: #6fb2f9;
-  color: #00346c;
+  color: black;
   border-color: #00346c;
-  
+}
+
+.btn-delete {
+  background-color: #e74c3c; 
+  color: white;
+  font-size: 14px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer; 
+  transition: background-color 0.2s ease;
+  padding: 5px 10px;
+}
+
+.btn-delete:hover {
+  background-color: #c0392b; 
+  color: white;
 }

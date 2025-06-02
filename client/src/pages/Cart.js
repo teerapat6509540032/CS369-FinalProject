@@ -19,9 +19,10 @@ const Cart = () => {
                 const data = await response.json();
 
                 const formattedItems = data.products.map(p => ({
-                  id: p._id, 
+                  id: p._id,
+                  productId: p.product?.productId,
                   itemName: p.product?.name || "Unknown",
-                  image: `/${p.product?.designData}` || "", 
+                  image: `/${p.product?.designData.replaceAll("\\", "/")}` || "", 
                   price: p.product?.price || 0,
                   quantity: p.quantity,
                   selected: false 
@@ -47,12 +48,7 @@ const Cart = () => {
       prevItems.flatMap(item => {
         if (item.id === id) {
           if (item.quantity <= 1) {
-            const confirmDelete = window.confirm("Do you want to remove this item from the cart?");
-            if (confirmDelete) {
-              return [];
-            } else {
-              return[item];
-            }
+            return[item];
           } else {
             return [{ ...item, quantity: item.quantity - 1 }];
           }
@@ -69,6 +65,32 @@ const Cart = () => {
       )
     );
   };
+
+  
+  const handleDeleteItem = async (productId) => {
+    const confirmDelete = window.confirm("Do you want to remove this item from the cart?");
+    if (!confirmDelete) return;  
+
+    try {
+      const response = await fetch(`/api/cart/removeFromCart/${productId}`, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${localStorage.getItem('token')}`
+        }
+      });
+    
+      if (!response.ok) {
+        throw new Error('Failed to delete item');
+      }
+    
+      setCartItems(prevItems => prevItems.filter(item => item.productId !== productId));
+    
+    } catch (error) {
+      console.error('Error deleting item:', error);
+    }
+  };
+
 
   let totalCartPrice = 0;
 
@@ -109,6 +131,15 @@ const Cart = () => {
           </div>
           <div className="summary-price">
             <span>฿{item.price * item.quantity}</span>
+          </div>
+          <div className="item-delete">
+            <button 
+              type="button" 
+              onClick={() => handleDeleteItem(item.productId)}
+              className="btn-delete"
+            >
+              Delete
+            </button>
           </div>
         </div>
       ))}

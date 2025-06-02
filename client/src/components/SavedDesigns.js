@@ -39,9 +39,10 @@ const SavedDesigns = () => {
                 <div className="designs-grid">
                     {designs.map((design) => (
                         <div key={design.id} className="design-card">
-                            <div className="design-info">
-                                <h3>{design.name}</h3>
-                            </div>
+                             <img src={design.designData} alt={design.name} className="design-image" />
+                             <div className="design-info">
+                                 <h3>{design.name}</h3>
+                             </div>
                         </div>
                     ))}
                 </div>
@@ -59,11 +60,6 @@ const SavedDesigns = () => {
 //                 <div className="designs-grid">
 //                     {savedDesigns.map((design) => (
 //                         <div key={design.id} className="design-card">
-//                             <img src={design.image} alt={design.name} className="design-image" />
-//                             <div className="design-info">
-//                                 <h3>{design.name}</h3>
-//                                 <p>{design.description}</p>
-//                             </div>
 //                         </div>
 //                     ))}
 //                 </div>

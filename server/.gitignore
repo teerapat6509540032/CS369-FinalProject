@@ -19,7 +19,6 @@ yarn-error.log*
 Thumbs.db
 
 # Uploaded files (ถ้ามีการอัปโหลดรูป)
-uploads/
 tmp/
 
 # Build output (ถ้ามีการใช้ build หรือ transpile)

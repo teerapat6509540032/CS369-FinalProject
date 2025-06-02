@@ -1,23 +1,38 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../css/Cart.css';
 
 const Cart = () => {
-  const [cartItems, setCartItems] = useState([
-    {
-      id: 1,
-      itemName: 'T-shirt',
-      price: 250,
-      image: 'https://img.freepik.com/premium-vector/white-t-shirt-design-template_108964-91.jpg?w=360',
-      quantity: 1
-    },
-    {
-      id: 2,
-      itemName: 'Hoodie',
-      price: 450,
-      image: 'https://cdn.psdrepo.com/images/2x/hoodie-free-mockup-premium-psd-j6.jpg',
-      quantity: 1
-    }
-  ]);
+  const [cartItems, setCartItems] = useState([]);
+    useEffect(() => {
+            const fetchCart = async () => {
+                try {
+                const response = await fetch('/api/cart/getCart', {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${localStorage.getItem('token')}`
+                    }
+                });
+                if (!response.ok) {
+                    throw new Error('Failed to fetch saved designs');
+                }
+                const data = await response.json();
+
+                const formattedItems = data.products.map(p => ({
+                  id: p._id, 
+                  itemName: p.product?.name || "Unknown",
+                  image: `/${p.product?.designData}` || "", 
+                  price: p.product?.price || 0,
+                  quantity: p.quantity,
+                  selected: false 
+                }));
+                setCartItems(formattedItems);
+            } catch (error) {
+                console.error('Error fetching saved designs:', error);
+            }
+        };
+            fetchCart();    
+        }, []);
 
   const handleIncrease = (id) => {
     setCartItems(prevItems =>

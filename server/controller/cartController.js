@@ -55,9 +55,9 @@ export const getCart = async (req, res) => {
             return res.status(401).json({ message: 'Invalid token' });
         }
 
-        const cart = await Cart.findOne({ userId: decoded.id }).populate('products.productId');
+        const cart = await Cart.findOne({ userId: decoded.id }).populate('products.product');
         if (!cart) {
-            return res.status(404).json({ message: 'Cart not found' });
+            return res.status(200).json({ products: [] });
         }
 
         res.status(200).json(cart);

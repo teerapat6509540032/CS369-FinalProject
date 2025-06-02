@@ -1,6 +1,6 @@
 /* Header Section */
 .header-page {
-  padding: 5% 10%;
+  padding: 20px;
   text-align: center;
 }
 
@@ -57,15 +57,6 @@
   color: #2c6dfd;
 }
 
-/* Design Actions */
-.design-actions {
-  display: flex;
-  justify-content: center;
-  gap: 16px;
-  flex-wrap: wrap;
-  margin-bottom: 3rem;
-}
-
 .btn-outline-blue {
   background-color: transparent;
   border: 2px solid #2c6dfd;
@@ -82,7 +73,7 @@
 }
 
 .mockup-area {
-  height: 350px;
+  height: 505px;
   border: 2px dashed #ccc;
   border-radius: 16px;
   display: flex;
@@ -116,4 +107,34 @@
 .design-complete {
   margin-top: 40px;
   text-align: center;
+}
+
+.Canvas {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lower-canvas {
+  position: initial !important;
+}
+
+.Toolbar {
+  position: static;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-right: 24px;
+  align-items: flex-start;
+}
+
+.Settings {
+  position: static;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.Settings input[type="color"] {
+  width: 100%;
 }

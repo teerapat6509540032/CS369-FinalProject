@@ -34,11 +34,6 @@ const Home = () => {
             <h3>Color Options</h3>
             <p>Choose from multiple color variations</p>
           </div>
-          <div className="feature-box">
-            <img src="https://img.icons8.com/ios/50/search--v1.png" alt="Preview" />
-            <h3>Preview</h3>
-            <p>See your design in real-time</p>
-          </div>
         </div>
       </section>
 

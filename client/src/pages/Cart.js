@@ -3,37 +3,37 @@ import '../css/Cart.css';
 
 const Cart = () => {
   const [cartItems, setCartItems] = useState([]);
-    useEffect(() => {
-            const fetchCart = async () => {
-                try {
-                const response = await fetch('/api/cart/getCart', {
-                    method: 'GET',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${localStorage.getItem('token')}`
-                    }
-                });
-                if (!response.ok) {
-                    throw new Error('Failed to fetch saved designs');
-                }
-                const data = await response.json();
+  useEffect(() => {
+    const fetchCart = async () => {
+      try {
+        const response = await fetch('/api/cart/getCart', {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${localStorage.getItem('token')}`
+          }
+        });
+        if (!response.ok) {
+          throw new Error('Failed to fetch saved designs');
+        }
+        const data = await response.json();
 
-                const formattedItems = data.products.map(p => ({
-                  id: p._id,
-                  productId: p.product?.productId,
-                  itemName: p.product?.name || "Unknown",
-                  image: `/${p.product?.designData.replaceAll("\\", "/")}` || "", 
-                  price: p.product?.price || 0,
-                  quantity: p.quantity,
-                  selected: false 
-                }));
-                setCartItems(formattedItems);
-            } catch (error) {
-                console.error('Error fetching saved designs:', error);
-            }
-        };
-            fetchCart();    
-        }, []);
+        const formattedItems = data.products.map(p => ({
+          id: p._id,
+          productId: p.product?.productId,
+          itemName: p.product?.name || "Unknown",
+          image: `/${p.product?.designData.replaceAll("\\", "/")}` || "",
+          price: p.product?.price || 0,
+          quantity: p.quantity,
+          selected: false
+        }));
+        setCartItems(formattedItems);
+      } catch (error) {
+        console.error('Error fetching saved designs:', error);
+      }
+    };
+    fetchCart();
+  }, []);
 
   const handleIncrease = (id) => {
     setCartItems(prevItems =>
@@ -48,7 +48,7 @@ const Cart = () => {
       prevItems.flatMap(item => {
         if (item.id === id) {
           if (item.quantity <= 1) {
-            return[item];
+            return [item];
           } else {
             return [{ ...item, quantity: item.quantity - 1 }];
           }
@@ -66,10 +66,10 @@ const Cart = () => {
     );
   };
 
-  
+
   const handleDeleteItem = async (productId) => {
     const confirmDelete = window.confirm("Do you want to remove this item from the cart?");
-    if (!confirmDelete) return;  
+    if (!confirmDelete) return;
 
     try {
       const response = await fetch(`/api/cart/removeFromCart/${productId}`, {
@@ -79,15 +79,77 @@ const Cart = () => {
           'Authorization': `Bearer ${localStorage.getItem('token')}`
         }
       });
-    
+
       if (!response.ok) {
         throw new Error('Failed to delete item');
       }
-    
+
       setCartItems(prevItems => prevItems.filter(item => item.productId !== productId));
-    
+
     } catch (error) {
       console.error('Error deleting item:', error);
+    }
+  };
+
+  const handleDeleteAll = async () => {
+    const confirmDelete = window.confirm("Do you want to remove all items from the cart?");
+    if (!confirmDelete) return;
+    try {
+      const response = await fetch('/api/cart/clearCart', {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${localStorage.getItem('token')}`
+        }
+      });
+      if (!response.ok) {
+        throw new Error('Failed to clear cart');
+      }
+      setCartItems([]);
+    } catch (error) {
+      console.error('Error clearing cart:', error);
+    }
+  };
+
+  const handleCheckOut = async () => {
+    const selectedItems = cartItems.filter(item => item.selected);
+    if (selectedItems.length === 0) {
+      alert("Please select at least one item to checkout.");
+      return;
+    }
+    const confirmCheckout = window.confirm("Do you want to proceed to checkout?");
+    if (!confirmCheckout) return;
+    try {
+      const response = await fetch('/api/order/createOrder', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${localStorage.getItem('token')}`
+        },
+        body: JSON.stringify({
+          productId: selectedItems.map(item => item.productId),
+          quantity: selectedItems.map(item => item.quantity)
+        })
+      });
+      if (!response.ok) {
+        throw new Error('Failed to create order');
+      }
+      alert(`Order created successfully!`);
+
+      for (const item of selectedItems) {
+        await fetch(`/api/cart/removeFromCart/${item.productId}`, {
+          method: 'DELETE',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${localStorage.getItem('token')}`
+          }
+        });
+      }
+      
+      window.location.reload();
+    } catch (error) {
+      console.error('Error during checkout:', error);
+      alert('Failed to create order. Please try again later.');
     }
   };
 
@@ -98,7 +160,7 @@ const Cart = () => {
     const isSelected = item.selected;
     const pricePerItem = item.price;
     const quantity = item.quantity;
-  
+
     if (isSelected) {
       const itemTotal = pricePerItem * quantity;
       totalCartPrice += itemTotal;
@@ -133,8 +195,8 @@ const Cart = () => {
             <span>฿{item.price * item.quantity}</span>
           </div>
           <div className="item-delete">
-            <button 
-              type="button" 
+            <button
+              type="button"
               onClick={() => handleDeleteItem(item.productId)}
               className="btn-delete"
             >
@@ -146,7 +208,7 @@ const Cart = () => {
 
       <div className="checkout-cart">
         <span className='total-price'><b>Total : ฿{totalCartPrice}</b></span>
-        <button>checkout</button>
+        <button onClick={handleCheckOut}>checkout</button>
       </div>
     </section>
   );

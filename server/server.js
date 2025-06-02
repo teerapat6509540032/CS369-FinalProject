@@ -13,7 +13,7 @@ import cartRoutes from './routes/cartRoutes.js';
 var app = express();
 const PORT = 5000;
 
-app.use(bodyParser.json());
+app.use(bodyParser.json({ limit: '10mb' }));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/mockups', express.static('mockups'));
 app.use('/uploads', express.static('uploads'));

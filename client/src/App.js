@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Routes, Route, useLocation  } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 
@@ -11,13 +11,41 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import Cart from './pages/Cart';
 
+const isTokenExpired = (token) => {
+  if (!token) return true;
+  const payload = JSON.parse(atob(token.split('.')[1]));
+  const expirationTime = payload.exp * 1000;
+  if( Date.now() >= expirationTime) {
+    localStorage.removeItem('token');
+    return true;
+  }
+  else{
+    return false;
+  }
+}
+
 const App = () => {
-    const location = useLocation();  // ใช้เพื่อเช็คเส้นทางปัจจุบัน
-   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const location = useLocation();  // ใช้เพื่อเช็คเส้นทางปัจจุบัน
+  const navigate = useNavigate();
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (
+      location.pathname !== '/' &&
+      location.pathname !== '/login' &&
+      location.pathname !== '/register'
+    ) {
+      if (isTokenExpired(token)) {
+        alert('Your token expired or you are not logged in. Please log in again.');
+        navigate('/login', { replace: true });
+      }
+    }
+  }, [location, isLoggedIn, navigate]);
 
   return (
     <>
-        {location.pathname !== '/login' && location.pathname !== '/register' && <Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />}
+      {location.pathname !== '/login' && location.pathname !== '/register' && <Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />}
 
       <Routes>
         <Route path="/" element={<Home />} />

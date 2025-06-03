@@ -7,7 +7,7 @@
   background-color: white;
   border-bottom: 1px solid #ddd;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
-  position: sticky;
+  position: relative;
   top: 0;
   z-index: 100;
 }
@@ -33,13 +33,17 @@
 
 /* Nav Menu */
 .nav-menu {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 40px;
-  flex: 1; /* Ensures the nav-menu takes up available space */
-  margin: 0 auto; /* Centers the nav-menu horizontally */
-  padding-left: 175px; 
+  margin: 0;
+  padding-left: 0;
+  flex: unset;
 }
 
 .nav-menu a {

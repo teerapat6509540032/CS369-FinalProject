@@ -12,8 +12,8 @@ const Canva = ({ selectedProduct }) => {
     useEffect(() => {
         if (canvasRef.current) {
             const initCanvas = new fabric.Canvas(canvasRef.current, {
-                width: 500,
-                height: 500,
+                width: 480,
+                height: 480,
             });
 
             initCanvas.backgroundColor = '#fff';
@@ -36,12 +36,12 @@ const Canva = ({ selectedProduct }) => {
     return (
         <div className='Canvas'>
             <div className='Toolbar'>
-                <button className="btn btn-blue" onClick={() => addItem(canvas, 'rect')}>Sqaure</button>
-                <button className="btn btn-blue" onClick={() => addItem(canvas, 'circle')}>Circle</button>
-                <button className="btn btn-blue" onClick={() => addItem(canvas, 'triangle')}>Triangle</button>
-                <input type="file" accept="image/*" className="btn btn-blue" onChange={file => uploadImage(canvas, file.target.files[0])}></input>
-                <button className="btn btn-blue" onClick={() => addItem(canvas, 'text')}>Add Text</button>
-                <button className="btn btn-blue" onClick={() => removeItem(canvas)}>Remove Item</button>
+                <button className="tool-btn" onClick={() => addItem(canvas, 'rect')}>Sqaure</button>
+                <button className="tool-btn" onClick={() => addItem(canvas, 'circle')}>Circle</button>
+                <button className="tool-btn" onClick={() => addItem(canvas, 'triangle')}>Triangle</button>
+                <input type="file" accept="image/*" className="tool-btn" onChange={file => uploadImage(canvas, file.target.files[0])}></input>
+                <button className="tool-btn" onClick={() => addItem(canvas, 'text')}>Add Text</button>
+                <button className="tool-btn" onClick={() => removeItem(canvas)}>Remove Item</button>
             </div>
             <canvas id='canvas' ref={canvasRef}></canvas>
             <Settings canvas={canvas} />

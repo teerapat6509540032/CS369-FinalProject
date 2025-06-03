@@ -57,20 +57,6 @@
   color: #2c6dfd;
 }
 
-.btn-outline-blue {
-  background-color: transparent;
-  border: 2px solid #2c6dfd;
-  color: #2c6dfd;
-}
-
-.btn-outline-blue:hover {
-  background-color: #f0f8ff;
-}
-
-/* Design Preview */
-.design-preview {
-  margin-top: 2rem;
-}
 
 .mockup-area {
   height: 505px;
@@ -80,9 +66,7 @@
   align-items: center;
   justify-content: center;
   color: #888;
-  font-size: 1.2rem;
   background-color: #f9f9f9;
-  padding: 20px;
 }
 
 .preview-content {
@@ -109,6 +93,15 @@
   text-align: center;
 }
 
+.design-complete button{
+  margin: 0px 15px 20px;
+}
+
+.design-complete button:hover{
+  background-color: #4b6eec;
+}
+
+
 .Canvas {
   display: flex;
   align-items: center;
@@ -119,22 +112,102 @@
   position: initial !important;
 }
 
-.Toolbar {
+/* .Toolbar {
   position: static;
   display: flex;
-  flex-direction: column;
+  
   gap: 8px;
   margin-right: 24px;
-  align-items: flex-start;
+  
+} */
+
+.Toolbar {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px 20px;
+  background-color: #f8fbff;
+  border-bottom: 1px solid #d0e5ff;
+  box-shadow: 0 2px 6px rgba(0, 84, 179, 0.05);
+  margin-right: 10%;
+}
+
+.tool-btn {
+  background-color: #d8e3ff;
+  border-color: #2c6dfd;
+  color: #2c6dfd;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  padding: 8px 14px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.tool-btn:hover {
+  background-color: #b6cbff;
+  border-color: #2c6dfd;
+  color: #2c6dfd;
+}
+
+.tool-btn:active {
+  transform: scale(0.96);
+}
+
+input.tool-btn[type="file"] {
+  padding: 6px;
+  background-color: #ffffff;
+  border: 2px dashed #2c6dfd;
+  color: #2c6dfd;
+  cursor: pointer;
+}
+
+input.tool-btn[type="file"]::file-selector-button {
+  background-color: #d8e3ff;
+  border: none;
+  padding: 6px 10px;
+  margin-right: 10px;
+  border-radius: 6px;
+  color: #005cbf;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+input.tool-btn[type="file"]::file-selector-button:hover {
+  background-color: #bfe0ff;
 }
 
 .Settings {
-  position: static;
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: center;
+  margin-left: 10%;  
 }
 
-.Settings input[type="color"] {
-  width: 100%;
+.Settings input {
+  width: 175%;
+  height: 32px;
+  text-align: center;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
 }
+
+.Settings label {
+  color: #000;
+  margin: 10px ;
+}
+
+.design-name {
+  margin: 20px;
+  width: 30%;
+  height: 40px;
+  text-align: center;
+  font-size: 19px;
+  border: 1px groove #ccc;
+  border-radius: 8px;
+}
+
+

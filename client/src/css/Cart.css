@@ -22,7 +22,6 @@
   font-size: 16px;
 }
 
-/* ซ่อน checkbox ดั้งเดิม */
 .item-checkbox input[type="checkbox"] {
   appearance: none;
   width: 20px;

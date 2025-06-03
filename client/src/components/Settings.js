@@ -137,7 +137,6 @@ const Settings = ({ canvas }) => {
         }
     }
 
-
     return (
         <div className='Settings'>
             {selectedObject && selectedObject.type === 'rect' && (

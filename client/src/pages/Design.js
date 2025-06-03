@@ -137,15 +137,16 @@ const Design = () => {
       </div>
 
       <div className="design-preview">
+        <input className='design-name' type='text' placeholder='Design Name' value={selectedProduct.name} onChange={(e) => setSelectedProduct({ ...selectedProduct, name: e.target.value })} />
         <div className="mockup-area">
           <Canvas selectedProduct={selectedProduct} />
         </div>
-        <input type='text' placeholder='Design Name' value={selectedProduct.name} onChange={(e) => setSelectedProduct({ ...selectedProduct, name: e.target.value })} />
+        
       </div>
 
       <div className="design-complete">
-        <button className="btn btn-blue" onClick={handleAddToCart}>Add to Cart</button>
-        <button className="btn btn-blue" onClick={handleSaveDesign}>Save design</button>
+        <button className="btn" onClick={handleSaveDesign}>Save design</button>
+        <button className="btn" onClick={handleAddToCart}>Add to Cart</button>
       </div>
     </div>
 

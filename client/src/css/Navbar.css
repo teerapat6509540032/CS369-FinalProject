@@ -39,7 +39,7 @@
   gap: 40px;
   flex: 1; /* Ensures the nav-menu takes up available space */
   margin: 0 auto; /* Centers the nav-menu horizontally */
-  padding-left: 170px; 
+  padding-left: 175px; 
 }
 
 .nav-menu a {

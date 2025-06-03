@@ -12,7 +12,6 @@ const Home = () => {
         </p>
         <div className="hero-buttons">
           <Link to="/design"><button className="btn btn-white">Create Custom Design</button></Link>
-          <button className="btn btn-outline">Learn More</button>
         </div>
       </section>
 

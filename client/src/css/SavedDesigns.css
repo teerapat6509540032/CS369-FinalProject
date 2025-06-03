@@ -1,4 +1,3 @@
-/* Container */
 .saved-designs-container {
   padding: 40px 20px;
   max-width: 1200px;
@@ -12,14 +11,12 @@
   margin-bottom: 20px;
 }
 
-/* Grid Layout */
 .designs-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
 }
 
-/* Design Card */
 .design-card {
   background-color: #fff;
   border-radius: 12px;
@@ -33,14 +30,12 @@
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 }
 
-/* Design Image */
 .design-image {
   width: 100%;
   height: 300px;
   object-fit: cover;
 }
 
-/* Design Info */
 .design-info {
   padding: 16px;
   text-align: left;

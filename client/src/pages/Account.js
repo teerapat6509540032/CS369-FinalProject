@@ -8,11 +8,10 @@ const Account = () => {
   const [activeSection, setActiveSection] = useState('Profile Details'); // Default to Profile Details
 
   const handleNavClick = (section, e) => {
-    e.preventDefault(); // Prevent default anchor behavior
-    setActiveSection(section); // Set the active section
+    e.preventDefault();
+    setActiveSection(section);
   };
 
-  // Render the content based on the active section
   const renderContent = () => {
     switch (activeSection) {
       case 'Profile Details':

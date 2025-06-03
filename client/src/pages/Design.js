@@ -55,7 +55,6 @@ const Design = () => {
     const dataURL = canvas.toDataURL({ format: 'png', quality: 1 });
     const token = localStorage.getItem('token');
     try {
-      // Save design first
       const res = await fetch('/api/design/createDesign', {
         method: 'POST',
         headers: {
@@ -74,7 +73,7 @@ const Design = () => {
         return;
       }
       const designData = await res.json();
-      // Add to cart
+
       const cartRes = await fetch('/api/cart/addToCart', {
         method: 'POST',
         headers: {

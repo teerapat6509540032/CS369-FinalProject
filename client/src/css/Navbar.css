@@ -1,4 +1,3 @@
-/* Navbar */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -12,7 +11,6 @@
   z-index: 100;
 }
 
-/* Navbar Left */
 .navbar-left {
   display: flex;
   align-items: center;
@@ -22,7 +20,6 @@
   text-decoration: none;
 }
 
-/* Logo */
 .logo {
   font-size: 28px;
   font-weight: 600;
@@ -31,7 +28,6 @@
   text-decoration: none;
 }
 
-/* Nav Menu */
 .nav-menu {
   position: absolute;
   left: 50%;
@@ -58,14 +54,12 @@
   color: #2c6dfd;
 }
 
-/* Navbar Right */
 .navbar-right {
   display: flex;
   align-items: center;
   gap: 20px;
 }
 
-/* Buttons */
 .btn {
   font-size: 14px;
   font-weight: 600;

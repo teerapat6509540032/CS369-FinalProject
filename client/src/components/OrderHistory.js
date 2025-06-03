@@ -4,7 +4,6 @@ const OrderHistory = () => {
     const [orders, setOrders] = useState([]);
 
     useEffect(() => {
-        // Fetch order history from the server
         const fetchOrders = async () => {
             try {
                 const response = await fetch('/api/order/getOrderHistory', {
@@ -28,7 +27,6 @@ const OrderHistory = () => {
     }, []);
 
     const handleViewDetails = (orderId) => {
-        // Navigate to the order details page
         try {
             window.location.href = `/order/${orderId}`;
         } catch (error) {

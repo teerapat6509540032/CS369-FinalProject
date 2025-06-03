@@ -25,7 +25,7 @@ const Profile = () => {
   }, []);
 
   const handleEdit = () => {
-    setOriginalProfile(profile); // เก็บค่าเดิมไว้สำหรับกรณียกเลิก
+    setOriginalProfile(profile);
     setEditMode(true);
   };
 
@@ -62,7 +62,6 @@ const Profile = () => {
         alert('Error updating profile');
       }
     }
-    // ถ้ายกเลิกใน confirm จะไม่ทำอะไร
   };
 
   if (!profile) return <div>Loading...</div>;

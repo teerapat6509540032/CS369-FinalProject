@@ -31,7 +31,6 @@ const Login = ({ setIsLoggedIn }) => {
       const data = await response.json();
       localStorage.setItem('token', data.token);
       setIsLoggedIn(true);
-      // Store token or user data as needed
       window.location.href = '/';
     } catch (error) {
       console.error('Error fetching user data:', error);

@@ -112,15 +112,6 @@
   position: initial !important;
 }
 
-/* .Toolbar {
-  position: static;
-  display: flex;
-  
-  gap: 8px;
-  margin-right: 24px;
-  
-} */
-
 .Toolbar {
   display: flex;
   flex-direction: column;

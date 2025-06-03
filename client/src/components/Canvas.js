@@ -13,8 +13,8 @@ const Canva = ({ selectedProduct }) => {
     useEffect(() => {
         if (canvasRef.current) {
             const initCanvas = new fabric.Canvas(canvasRef.current, {
-                width: 480,
-                height: 480,
+                width: 500,
+                height: 500,
             });
 
             initCanvas.backgroundColor = '#fff';

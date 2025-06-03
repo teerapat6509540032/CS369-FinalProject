@@ -55,7 +55,7 @@ const Order = () => {
         <div className="order-items">
           
             {order.products?.map((item) => (
-            <div key={item._id}>
+            <div key={item._id} className='item-card'>
               <p>{item.product?.name || "Unknown Product"}</p>
               {item.product?.designData && (
                 <img
@@ -80,7 +80,7 @@ const Order = () => {
         </div>
 
         <div className="order-footer">
-          <p>Status: <span className="status">{order.orderStatus}</span></p>
+          <p>Status: <span className={`status ${order.orderStatus?.toLowerCase?.()} || 'status'` }>{order.orderStatus}</span></p>
         </div>
       </div>
     </div>

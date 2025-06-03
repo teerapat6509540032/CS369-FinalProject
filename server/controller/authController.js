@@ -4,11 +4,11 @@ import jwt from 'jsonwebtoken';
 
 // Register a new user
 export const registerUser = async (req, res) => {
-  const { name, username, email, password } = req.body;
+  const { name, username, email, password, shippingAddress } = req.body;
 
   try {
     const hashedPassword = await bcrypt.hash(password, 10);
-    const newUser = new User({ name, username, email, password: hashedPassword });
+    const newUser = new User({ name, username, email, password: hashedPassword , shippingAddress});
     await newUser.save();
     res.status(201).json({ message: 'User registered successfully' });
   } catch (error) {

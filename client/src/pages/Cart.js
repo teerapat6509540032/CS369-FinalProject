@@ -91,26 +91,6 @@ const Cart = () => {
     }
   };
 
-  const handleDeleteAll = async () => {
-    const confirmDelete = window.confirm("Do you want to remove all items from the cart?");
-    if (!confirmDelete) return;
-    try {
-      const response = await fetch('/api/cart/clearCart', {
-        method: 'DELETE',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${localStorage.getItem('token')}`
-        }
-      });
-      if (!response.ok) {
-        throw new Error('Failed to clear cart');
-      }
-      setCartItems([]);
-    } catch (error) {
-      console.error('Error clearing cart:', error);
-    }
-  };
-
   const handleCheckOut = async () => {
     const selectedItems = cartItems.filter(item => item.selected);
     if (selectedItems.length === 0) {

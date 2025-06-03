@@ -41,7 +41,6 @@ const Account = () => {
               alt="Profile"
               className="profile-image"
             />
-            <button className="btn btn-small">Change</button>
           </div>
           <div className="account-nav">
             <a

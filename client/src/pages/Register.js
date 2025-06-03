@@ -8,6 +8,7 @@ const Register = () => {
     username: '',
     email: '',
     password: '',
+    shippingAddress: '',
   });
 
   const handleChange = (e) => {
@@ -78,6 +79,14 @@ const Register = () => {
               value={formData.password}
               onChange={handleChange}
               placeholder='Password'
+              required
+            />
+            <input
+              type="text"
+              name="shippingAddress"
+              value={formData.shippingAddress}
+              onChange={handleChange}
+              placeholder='Shipping Address'
               required
             />
           <button type="submit" className="btn btn-blue">Register</button>

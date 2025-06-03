@@ -68,20 +68,6 @@ export const createDesign = async (req, res) => {
     }
 }
 
-export const deleteDesign = async (req, res) => {
-    try {
-        const id = req.params;
-        const design = await Design.findOneAndDelete( { productId: id });
-        if (!design) {
-            return res.status(404).json({ message: 'Design not found' });
-        }
-        res.status(200).json({ message: 'Design deleted successfully' });
-    } catch (error) {
-        console.error('Error deleting design:', error);
-        res.status(500).json({ message: 'Internal server error' });
-    }
-}
-
 export const getAllDesigns = async (req, res) => {
     try {
         const token = req.headers.authorization?.split(' ')[1];

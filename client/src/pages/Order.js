@@ -1,67 +1,89 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useParams } from 'react-router-dom';
+import '../css/Order.css'; 
+
 
 const Order = () => {
-  return (
-    
-      <div className="header-page">
-        <h1>Your Orders</h1>
-        <p className="description">
-          Review your recent orders and check their status. Track shipments and view order details.
-        </p>
+  const [order, setOrder] = useState([]); 
+  const { id: orderId } = useParams();
 
-        <div className="order-actions">
-          <Link to="/design"><button className="btn btn-blue">New Order</button></Link>
+  console.log(orderId)
+
+  useEffect(() => {
+    const fetchOrder = async () => {
+      try {
+        const response = await fetch(`/api/order/getOrder/${orderId}`, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${localStorage.getItem('token')}`,
+          },
+        });
+        if (!response.ok) throw new Error('Failed to fetch order');
+        const data = await response.json();
+        if (Array.isArray(data)) {
+          setOrder(data[0]); // เลือกตัวแรก
+        } else {
+          setOrder(data);    // ถ้าไม่ใช่ array ก็ใช้ตรง ๆ
+        }
+      } catch (error) {
+        console.error('Error fetching order:', error);
+      }
+    };
+
+    fetchOrder();
+  }, [orderId]);
+
+
+  return (
+    <div className="header-page">
+      <h1>Your Orders</h1>
+      <p className="description">
+        Review your recent orders and check their status.
+      </p>
+
+      <div className="order-actions">
+        <Link to="/design"><button className="btn btn-blue">New Order</button></Link>
+      </div>
+
+      <div className="order-card">
+        <div className="order-header">
+          <h3>Order #{order.orderID}</h3>
+          <span className="order-date">{new Date(order.createdAt).toLocaleDateString()}</span>
         </div>
 
-        <div className="order-list">
-          <div className="order-card">
-            <div className="order-header">
-              <h3>Order #12345</h3>
-              <span className="order-date">April 2, 2025</span>
-            </div>
-            <div className="order-items">
-              <p>Custom T-shirt - Blue, Size M</p>
-              <p>Quantity: 1</p>
-            </div>
-            <div className="order-footer">
-              <p>Status: <span className="status shipped">Shipped</span></p>
-              <button className="btn btn-outline-blue">View Details</button>
-            </div>
-          </div>
+        <div className="order-items">
+          
+            {order.products?.map((item) => (
+            <div key={item._id}>
+              <p>{item.product?.name || "Unknown Product"}</p>
+              {item.product?.designData && (
+                <img
+                  src={`/${item.product.designData.replaceAll("\\", "/")}`}
+                  alt="item-img"
+                  style={{ width: 100, height: 100 }}
+                />
+              )}
+              <p>Price: ฿{item.product?.price || 0}</p>
+              <p>Quantity: {item.quantity}</p>
+              <p><strong>Total: ฿{(item.product?.price * item.quantity)}</strong></p>
+            </div>)
+          )}
+        </div>
 
-          <div className="order-card">
-            <div className="order-header">
-              <h3>Order #12346</h3>
-              <span className="order-date">March 28, 2025</span>
-            </div>
-            <div className="order-items">
-              <p>Custom Mug - "Best Dad Ever"</p>
-              <p>Quantity: 2</p>
-            </div>
-            <div className="order-footer">
-              <p>Status: <span className="status processing">Processing</span></p>
-              <button className="btn btn-outline-blue">View Details</button>
-            </div>
-          </div>
+        <div className="order-summary">
+          <h3>
+            Grand Total: ฿
+            {order.products?.reduce((sum, item) =>
+              sum + (item.product?.price || 0) * item.quantity, 0).toLocaleString()}
+          </h3>
+        </div>
 
-          <div className="order-card">
-            <div className="order-header">
-              <h3>Order #12344</h3>
-              <span className="order-date">March 15, 2025</span>
-            </div>
-            <div className="order-items">
-              <p>Custom Phone Case - Floral Design</p>
-              <p>Quantity: 1</p>
-            </div>
-            <div className="order-footer">
-              <p>Status: <span className="status delivered">Delivered</span></p>
-              <button className="btn btn-outline-blue">View Details</button>
-            </div>
-          </div>
+        <div className="order-footer">
+          <p>Status: <span className="status">{order.orderStatus}</span></p>
         </div>
       </div>
-  
+    </div>
   );
 };
 

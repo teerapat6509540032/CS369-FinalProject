@@ -4,6 +4,7 @@ import { addItem, removeItem } from './Items';
 import Settings from './Settings';
 import { loadBackgroundImage, uploadImage } from './Image';
 import '../css/Design.css';
+import LayerList from './LayerList';
 
 const Canva = ({ selectedProduct }) => {
     const canvasRef = useRef(null);
@@ -45,6 +46,7 @@ const Canva = ({ selectedProduct }) => {
             </div>
             <canvas id='canvas' ref={canvasRef}></canvas>
             <Settings canvas={canvas} />
+            <LayerList canvas={canvas} />
         </div>
     );
 }

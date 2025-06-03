@@ -98,7 +98,7 @@ export const getOrderById = async (req, res) => {
         const orderId = req.params.id;
         const order = await Order.find
             ({ orderID: orderId, userID: decoded.id })
-            .populate('products.product', 'designData price');
+            .populate('products.product');
         if (!order) {
             return res.status(404).json({ message: 'Order not found' });
         }
